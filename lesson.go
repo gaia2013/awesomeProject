@@ -1,28 +1,20 @@
 package main
-
 import "fmt"
+func foo(params ...int) {
+	fmt.Println(len(params), params)
+	for _, param := range params{
+		fmt.Println(param)
+	}
+}
 
 func main() {
-	n := make([]int, 3, 5)
-	fmt.Printf("len=%d cap=%d value=%v\n", len(n), cap(n), n)
-	n = append(n,0,0)
-	fmt.Printf("len=%d cap=%d value=%v\n", len(n), cap(n),n)
-	n = append(n,0,0,0,0,0)
-	fmt.Printf("len=%d cap=%d value=%v\n", len(n), cap(n), n)
+	foo()
+	foo(10, 20)
+	foo(10, 20, 30)
 
-	a := make([]int,3)
-	fmt.Printf("len=%d cap=%d value=%v\n", len(a), cap(a), a)
+	s := []int{1,2,3}
+	fmt.Println(s)
 
-	b := make([]int, 0)
-	var c []int
-	fmt.Printf("len=%d csp=%d value=%v\n", len(b), cap(b), b)
-	fmt.Printf("len=%d csp=%d value=%v\n", len(c), cap(c), c)
-
-	//c = make([]int, 5)
-	c = make([]int, 0, 5)
-	for i := 0; i < 5; i++{
-		c = append(c,i)
-		fmt.Println(c)
-	}
-	fmt.Println(c)
+	foo(s...)
 }
+
