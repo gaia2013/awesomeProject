@@ -11,7 +11,7 @@ func (v Vertex) Area() int {
 }
 
 func (v *Vertex) Scale(i int) {
-	v.x = v.y * i
+	v.x = v.x * i
 	v.y = v.y * i
 }
 
@@ -27,7 +27,7 @@ func (v Vertex3D) Area3D() int {
 func (v *Vertex3D) Scale3D(i int) {
 	v.x = v.x * i
 	v.y = v.y * i
-	v.y = v.z * i
+	v.z = v.z * i
 }
 
 func New(x, y, z int) *Vertex3D {
@@ -38,7 +38,7 @@ func main() {
 	//v := Vertex{3, 4}
 	//fmt.Println(Area(v))
 	v := New(3, 4, 5)
-	v.Scale(10)
+	v.Scale3D(10)
 	fmt.Println(v.Area()) // .で呼び出せるものをメソッド
 	fmt.Println(v.Area3D()) // .で呼び出せるものをメソッド
 
